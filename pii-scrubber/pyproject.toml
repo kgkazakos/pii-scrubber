@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pii-scrubber"
+version = "0.1.0"
+description = "De-identify qualitative research data — transcripts, survey open-ends, and field notes — with consistent pseudonyms and a shareable redaction manifest."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Kostas Kazakos" }]
+keywords = ["uxresearch", "pii", "anonymization", "de-identification", "privacy", "qualitative", "research-ops"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+# The LLM quasi-identifier layer is on by default but optional to install.
+llm = ["dspy-ai>=2.5", "litellm>=1.40"]
+openai = ["dspy-ai>=2.5", "litellm>=1.40"]
+anthropic = ["dspy-ai>=2.5", "litellm>=1.40"]
+gemini = ["dspy-ai>=2.5", "litellm>=1.40"]
+ui = ["streamlit>=1.33"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+pii-scrubber = "pii_scrubber.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kgkazakos/pii-scrubber"
+Repository = "https://github.com/kgkazakos/pii-scrubber"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pii_scrubber*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SLF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests deliberately exercise private helpers (_parse, _resolve_overlaps, ...).
+"tests/*" = ["SLF001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

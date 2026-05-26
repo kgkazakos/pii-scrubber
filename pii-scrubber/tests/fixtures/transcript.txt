@@ -1,0 +1,8 @@
+Interviewer: Thanks for making the time. Can you tell me your name and what you do?
+Sarah: Of course. I'm Sarah Chen, I work as a product manager at Globex Pty Ltd. My email is sarah.chen@globex.com if you need to follow up, and my mobile is 0412 998 221.
+Interviewer: How long have you been using the dashboard?
+Sarah: Around two years now. I moved to 14 Marlin Avenue last March which changed my routine. My participant code is UX2024-AC91.
+Interviewer: Did anyone else weigh in on the purchase?
+Sarah: My manager, Dr. Okafor, approved it. He visited https://globex.com/procurement and filed case 482-19-7765.
+Michael: Sorry I'm late — Michael here. I'm an analyst on the same team.
+Interviewer: No problem, welcome Michael.

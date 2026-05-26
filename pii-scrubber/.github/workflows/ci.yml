@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install build + test tooling
+        run: pip install setuptools wheel pytest ruff click rich
+
+      - name: Install package (no build isolation)
+        run: pip install -e . --no-build-isolation
+
+      - name: Lint (ruff)
+        run: ruff check pii_scrubber tests
+
+      - name: Run tests
+        run: pytest -q
