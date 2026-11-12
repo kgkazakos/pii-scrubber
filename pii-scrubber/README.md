@@ -9,7 +9,7 @@
 ## What it does
 
 - **Detects direct identifiers offline** — names, emails, phone numbers, addresses, URLs, IP addresses, ID/case codes, and organisations — with regex, heuristics, and a name gazetteer. Zero API calls required.
-- **Catches quasi-identifiers with an optional LLM layer** — role + organisation combinations, rare job titles, narrowing location specifics, and distinctive personal details. **On by default**, across Claude Opus, Gemini 3.1 Pro, and GPT-5.5.
+- **Catches quasi-identifiers with an optional LLM layer** — role + organisation combinations, rare job titles, narrowing location specifics, and distinctive personal details. **On by default**, across Claude Opus, Gemini 4 Argon, and GPT-5.5.
 - **Pseudonymises consistently across a corpus** — the same entity always maps to the same token (`Participant 1`, `[COMPANY_A]`), so the analytic relationships in your data survive de-identification. A bare "Sarah" attaches to an earlier "Sarah Chen".
 - **Produces a shareable redaction manifest** — types and counts only, no original values — safe to attach to a study file as evidence of the de-identification pass.
 - **Runs in your pipeline** — `scrub` and `batch` CLI commands, `--json-output` for CI, and an optional Streamlit drop-zone UI.
@@ -90,7 +90,7 @@ of the CPR Orbital tools.
 | Backend   | Model string                    |
 |-----------|---------------------------------|
 | Anthropic | `anthropic/claude-opus-4-7`     |
-| Gemini    | `gemini/gemini-3.1-pro-preview` |
+| Gemini    | `gemini/gemini-4-argon` |
 | OpenAI    | `openai/gpt-5.5`                |
 
 Model strings live in `pii_scrubber/llm.py` (`BACKENDS`) — edit them if your

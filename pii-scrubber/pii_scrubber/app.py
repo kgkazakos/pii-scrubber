@@ -87,7 +87,7 @@ with st.sidebar:
         backend_choice = st.selectbox(
             "Backend",
             opts,
-            help="Claude Opus / Gemini 3.1 Pro / GPT-5.5. 'auto' picks the first "
+            help="Claude Opus / Gemini 4 Argon / GPT-5.5. 'auto' picks the first "
                  "backend with an API key in the environment.",
         )
         if avail:

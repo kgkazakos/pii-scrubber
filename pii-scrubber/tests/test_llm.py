@@ -13,7 +13,7 @@ from pii_scrubber.models import EntityType, Source
 def test_backends_map_has_three_models():
     assert set(llm.BACKENDS) == {"anthropic", "gemini", "openai"}
     assert llm.BACKENDS["anthropic"] == "anthropic/claude-opus-4-7"
-    assert llm.BACKENDS["gemini"] == "gemini/gemini-3.1-pro-preview"
+    assert llm.BACKENDS["gemini"] == "gemini/gemini-4-argon"
     assert llm.BACKENDS["openai"] == "openai/gpt-5.5"
 
 

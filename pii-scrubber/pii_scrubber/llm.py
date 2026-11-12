@@ -16,7 +16,7 @@ missing key. ``--no-llm`` forces that same offline path explicitly.
 LLM support ships ON BY DEFAULT across three backends:
 
     anthropic  ->  anthropic/claude-opus-4-7      (Claude Opus)
-    gemini     ->  gemini/gemini-3.1-pro-preview  (Gemini 3.1 Pro)
+    gemini     ->  gemini/gemini-4-argon  (Gemini 4 Argon)
     openai     ->  openai/gpt-5.5                  (GPT-5.5)
 
 Model strings are LiteLLM-style ``provider/model`` identifiers — edit the
@@ -33,7 +33,7 @@ from .models import Detection, EntityType, Source
 # Canonical backend -> model string map. Update model strings here only.
 BACKENDS: dict[str, str] = {
     "anthropic": "anthropic/claude-opus-4-7",
-    "gemini": "gemini/gemini-3.1-pro-preview",
+    "gemini": "gemini/gemini-4-argon",
     "openai": "openai/gpt-5.5",
 }
 
